@@ -1,0 +1,12 @@
+# Features:
+# - set background wallpaper/lockscreen
+# - workspaces span displays
+# - 2 finger right-click
+# - Set gnome-terminal config/background/font choice
+
+- name: personalisation settings
+  tags: packages, personalisation
+  package:
+    state: latest
+    name:
+      - gnome-tweaks

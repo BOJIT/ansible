@@ -1,0 +1,15 @@
+- name: system setup | utilities | install utility packages
+  tags: packages,system,settings
+  package:
+    state: latest
+    name:
+      - build-essential
+      - cmake
+      - curl
+      - git
+      - ranger
+      - rsync
+      - screen
+      - traceroute
+      - wget
+      - zsh

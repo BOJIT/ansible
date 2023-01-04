@@ -21,16 +21,10 @@
 
     - name: Perform base role tasks
       ansible.builtin.include_tasks: "roles/base/main.yaml"
-      when: profile.role == "base"
 
-    - name: Copy Wallpaper File
-      ansible.builtin.copy:
-        src: roles/desktop/files/wallpaper.jpg
-        dest: /usr/share/backgrounds/ansible-wallpaper.jpg
-        owner: root
-        group: root
-        mode: 0700
-
+    - name: Perform desktop role tasks
+      ansible.builtin.include_tasks: "roles/desktop/main.yaml"
+      when: profile.role == "desktop"
 
 # - name: set wallpaper
 #   become_user: "{{ ansible_user_id }}"

@@ -1,0 +1,7 @@
+- name: Copy Wallpaper File
+  ansible.builtin.copy:
+    src: roles/desktop/files/wallpaper.jpg
+    dest: /usr/share/backgrounds/ansible-wallpaper.jpg
+    owner: root
+    group: root
+    mode: 0700

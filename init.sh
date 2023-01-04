@@ -19,9 +19,10 @@ rm ~/get-pip.py
 python3 -m pip install --user ansible psutil --no-warn-script
 PATH=$PATH:~/.local/bin
 
-# Install ansible-galaxy dependencies: not ideal handling here
-ansible-galaxy install gantsign.oh-my-zsh
-ansible-galaxy install gantsign.visual-studio-code
+# Install ansible-galaxy dependencies: handled afterwards in alias
+curl https://raw.githubusercontent.com/BOJIT/ansible/main/requirements.yml > ~/.ansible/tmp/requirements.yml
+ansible-galaxy install -r ~/.ansible/tmp/requirements.yml
+rm ~/.ansible/tmp/requirements.yml
 
 # Ansible handles the rest!
 echo "##########################################"

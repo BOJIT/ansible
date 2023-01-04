@@ -15,6 +15,10 @@
         file: ~/.ansible-profile.yml
         name: profile
 
+    - name: Set user as string
+      ansible.builtin.set_fact:
+        user: "{{ ansible_user_id }}"
+
   tasks:
     - name: Print current role
       ansible.builtin.debug:

@@ -1,11 +1,16 @@
+- name: Hush
+  ansible.builtin.copy:
+    content: ""
+    dest: "/home/{{ ansible_user_id }}/.hush-{{ ansible_facts.user }}"
+    force: false
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0664
+
+
 - name: Delete existing .zshrc file
   ansible.builtin.file:
     path: "/home/{{ ansible_user_id }}/.zshrc"
-    state: absent
-
-- name: Delete existing .zcompdump file
-  ansible.builtin.file:
-    path: "/home/{{ ansible_user_id }}/.zcompdump"
     state: absent
 
 - name: Check if shell is zsh
@@ -16,6 +21,12 @@
   become: true
   ansible.builtin.shell: chsh -s $(which zsh)
   when: shell_check.stdout != "zsh"
+
+# - name: Change user shell to zsh
+#   become: yes
+#     user:
+#       name: "{{ the_user }}"
+#       shell: /bin/zsh
 
 - name: Install oh-my-zsh
   ansible.builtin.include_role:

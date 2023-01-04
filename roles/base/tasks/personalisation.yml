@@ -18,6 +18,5 @@
     content: ""
     dest: "/home/{{ ansible_user_id }}/.hushlogin"
     force: false
-    group: sys
-    owner: root
+    owner: "{{ ansible_user_id }}"
     mode: 0664

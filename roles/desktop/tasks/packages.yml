@@ -1,4 +1,5 @@
 - name: Install Desktop Packages
+  become: true
   ansible.builtin.package:
     state: latest
     name:

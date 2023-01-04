@@ -1,15 +1,16 @@
 - hosts: localhost
   name: Main Play
   connection: local
-  become: true
 
   pre_tasks:
     - name: Update Repositories
+      become: true
       ansible.builtin.apt:
         update_cache: true
       changed_when: false
 
     - name: Fetch profile
+      become: true
       ansible.builtin.include_vars:
         file: ~/.ansible-profile.yml
         name: profile
@@ -29,11 +30,13 @@
 
     # end of run cleanup and reporting
     - name: Cleanup Package Cache
+      become: true
       ansible.builtin.apt:
         autoclean: true
       changed_when: false
 
     - name: Autoremove Orphan Packages
+      become: true
       ansible.builtin.apt:
         autoremove: true
         purge: true

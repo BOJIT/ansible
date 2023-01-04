@@ -5,6 +5,7 @@
 # Install software if in config
 
 - name: Install Google Chrome
+  become: true
   ansible.builtin.include_tasks: "tasks/software/google_chrome.yml"
   when: profile.software.googleChrome == true
 

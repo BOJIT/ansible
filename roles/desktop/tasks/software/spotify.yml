@@ -1,5 +1,4 @@
 - name: Install Spotify
-  become: true
   flatpak:
     name: com.spotify.Client
     method: user

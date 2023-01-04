@@ -1,0 +1,5 @@
+- name: Wireshark
+  flatpak:
+    name: org.wireshark.Wireshark
+    method: user
+    state: present

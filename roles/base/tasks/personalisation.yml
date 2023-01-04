@@ -9,11 +9,8 @@
   ansible.builtin.shell: chsh -s $(which zsh)
   when: shell_check.stdout != "zsh"
 
-- name: Install oh-my-zsh
-  roles:
-    - role: gantsign.oh-my-zsh
-      oh_my_zsh_theme: agnoster
-      oh_my_zsh_update_mode: reminder
+- name: Install oh my zsh
+  ansible.builtin.include_tasks: software/oh-my-zsh.yml
 
 - name: Copy .zshrc file
   ansible.builtin.copy:

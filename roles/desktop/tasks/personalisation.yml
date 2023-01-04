@@ -1,5 +1,4 @@
 # Features:
-# - set background wallpaper/lockscreen
 # - workspaces span displays
 # - Taskbar at bottom
 # - 2 finger right-click
@@ -25,3 +24,6 @@
   community.general.dconf:
     key: "/org/gnome/desktop/background/picture-options"
     value: "'zoom'"
+
+# - name: Resize taskbar
+

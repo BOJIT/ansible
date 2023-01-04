@@ -16,9 +16,3 @@ wget -O - https://raw.githubusercontent.com/BOJIT/ansible/main/init.sh | bash
 - `WSL`: Similar to Ubuntu, but with `WSL`-specific quirks. (TODO)
 
 - `MacOS`: Need to sort out my Mac dev machine.
-
-## Dependencies
-
-- Ansible
-
-- Git

@@ -8,8 +8,8 @@
 
 set -e
 
-# Bare minimum, need python3, pip and curl
-sudo apt-get install -y curl
+# Bare minimum, need python3, pip, curl and git
+sudo apt-get install -y curl git
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py --user
 

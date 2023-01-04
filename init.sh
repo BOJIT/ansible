@@ -16,11 +16,8 @@ python3 get-pip.py --user --no-warn-script
 rm ~/get-pip.py
 
 # Install ansible and temporarily add to PATH
-python3 -m pip install --user ansible --no-warn-script
+python3 -m pip install --user ansible psutil --no-warn-script
 PATH=$PATH:~/.local/bin
-
-# Install any required ansible modules
-ansible-galaxy collection install community.general
 
 # Ansible handles the rest!
 echo "##########################################"

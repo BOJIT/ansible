@@ -1,6 +1,7 @@
-- hosts: all
-  roles:
-  - role: gantsign.visual-studio-code
+- name: Install Visual Studio Code
+  ansible.builtin.include_role:
+    name: gantsign.visual-studio-code
+  vars:
     users:
       - username: "{{ ansible_user_id }}"
         visual_studio_code_extensions:
@@ -26,5 +27,5 @@
             "workbench.colorTheme": "midnight blue",
             "workbench.iconTheme": "vscode-icons",
             "workbench.tree.indent": 16,
-            "workbench.tree.renderIndentGuides": "always"
+            "workbench.tree.renderIndentGuides": "always",
           }

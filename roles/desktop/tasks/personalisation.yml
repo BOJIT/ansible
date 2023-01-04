@@ -1,6 +1,9 @@
-# Features:
-# - workspaces span displays
-# - Set gnome-terminal config/background/font choice
+- name: Install Powerline Fonts
+  ansible.builtin.include_role:
+    name: sicruse.powerline-fonts
+  vars:
+    powerline_fonts:
+      - DejaVuSansMono
 
 - name: Copy Wallpaper File
   become: true

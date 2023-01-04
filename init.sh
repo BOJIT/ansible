@@ -21,6 +21,7 @@ PATH=$PATH:~/.local/bin
 
 # Install ansible-galaxy dependencies: not ideal handling here
 ansible-galaxy install gantsign.oh-my-zsh
+ansible-galaxy install gantsign.visual-studio-code
 
 # Ansible handles the rest!
 echo "##########################################"

@@ -1,0 +1,30 @@
+- hosts: all
+  roles:
+  - role: gantsign.visual-studio-code
+    users:
+      - username: "{{ ansible_user_id }}"
+        visual_studio_code_extensions:
+          - cschlosser.doxdocgen
+          - ms-python.python
+          - ms-vscode.cpptools
+          - ms-vscode.hexeditor
+          - sebastianvelasco.midnight-blue
+          - vscode-icons-team.vscode-icons
+        visual_studio_code_settings_overwrite: true
+        visual_studio_code_settings:
+          {
+            "editor.detectIndentation": false,
+            "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+            "editor.fontSize": 13,
+            "editor.fontLigatures": true,
+            "editor.insertSpaces": true,
+            "editor.renderWhitespace": "all",
+            "editor.rulers": [80],
+            "files.insertFinalNewline": true,
+            "files.trimTrailingWhitespace": true,
+            "git.enabled": false,
+            "workbench.colorTheme": "midnight blue",
+            "workbench.iconTheme": "vscode-icons",
+            "workbench.tree.indent": 16,
+            "workbench.tree.renderIndentGuides": "always"
+          }

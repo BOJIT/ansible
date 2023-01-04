@@ -1,5 +1,6 @@
-- hosts: all
-  roles:
-    - role: gantsign.oh-my-zsh
-      oh_my_zsh_theme: agnoster
-      oh_my_zsh_update_mode: reminder
+- name: Install oh-my-zsh
+  ansible.builtin.include_role:
+    name: gantsign.oh-my-zsh
+  vars:
+    oh_my_zsh_theme: agnoster
+    oh_my_zsh_update_mode: reminder

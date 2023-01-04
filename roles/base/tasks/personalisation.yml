@@ -10,8 +10,16 @@
   ansible.builtin.shell: chsh -s $(which zsh)
   when: shell_check.stdout != "zsh"
 
-- name: Install oh my zsh
-  ansible.builtin.include_tasks: software/oh-my-zsh.yml
+# - name: Install oh my zsh
+#   ansible.builtin.include_tasks: software/oh-my-zsh.yml
+
+- name: Install oh-my-zsh
+  ansible.builtin.include_role:
+    name: gantsign.oh-my-zsh
+  vars:
+    oh_my_zsh_theme: agnoster
+    oh_my_zsh_update_mode: reminder
+
 
 - name: Copy .zshrc file
   ansible.builtin.copy:
@@ -29,3 +37,7 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0664
+
+# - name: Create .gitconfig based on profile
+
+# - name: Ensure Git/ directory is present

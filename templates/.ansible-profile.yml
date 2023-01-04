@@ -1,6 +1,10 @@
 # This file provides any personal information/secrets required for setup
 
+# Primary role: options are:
+# - base: installs bare minimum development environment
+# - desktop: installs GNOME/Ubuntu 22.04 environment
+role: desktop
+
 git:
   username: myUsername
   email: MyEmail
-targetRole: desktop

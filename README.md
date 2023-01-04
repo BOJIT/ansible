@@ -3,10 +3,23 @@ Personal ansible configurations
 
 # Quickstart
 
-Create `ansible-profile.yml` file from template and place in home directory
+1. Create `ansible-profile.yml` file from template and place in home directory:
+
+```bash
+wget -O ~/.ansible-profile.yml https://raw.githubusercontent.com/BOJIT/ansible/main/templates/.ansible-profile.yml
+```
+
+2. Customise the profile for your system
+
+3. Run init command. This will install `ansible` and required dependencies.
 
 ```bash
 wget -O - https://raw.githubusercontent.com/BOJIT/ansible/main/init.sh | bash
+```
+4. For future synchronisations, simply type:
+
+```bash
+bojit-sync
 ```
 
 ## Supported Targets

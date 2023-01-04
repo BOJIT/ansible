@@ -15,9 +15,13 @@
         name: profile
 
   tasks:
-    - name: Import profile variables
+    - name: Print current role
       ansible.builtin.debug:
-        msg: "our profile is {{ profile }}"
+        msg: "our role is {{ profile.role }}"
+
+    - name: Perform base role tasks
+      ansible.builtin.include_tasks: "roles/base/main.yaml"
+      when: profile.role == "base"
 
     - name: Copy Wallpaper File
       ansible.builtin.copy:

@@ -1,0 +1,4 @@
+
+- name: Print current role
+  ansible.builtin.debug:
+    msg: "our role is {{ profile.role }}"

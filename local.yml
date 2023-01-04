@@ -16,10 +16,6 @@
         name: profile
 
   tasks:
-    - name: Set user as string
-      ansible.builtin.set_fact:
-        user: "{{ ansible_user_id }}"
-
     - name: Print current role
       ansible.builtin.debug:
         msg: "our role is {{ profile.role }}"

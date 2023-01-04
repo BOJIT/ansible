@@ -1,12 +1,6 @@
-- name: Hush
-  ansible.builtin.copy:
-    content: ""
-    dest: "/home/{{ ansible_user_id }}/.hush-{{ ansible_facts.user }}"
-    force: false
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    mode: 0664
-
+- name: Set username as variable
+  ansible.builtin.set_fact:
+    username: "{{ ansible_user_id }}"
 
 - name: Delete existing .zshrc file
   ansible.builtin.file:
@@ -22,11 +16,11 @@
   ansible.builtin.shell: chsh -s $(which zsh)
   when: shell_check.stdout != "zsh"
 
-# - name: Change user shell to zsh
-#   become: yes
-#     user:
-#       name: "{{ the_user }}"
-#       shell: /bin/zsh
+- name: Change user shell to zsh
+  become: yes
+  user:
+    name: "{{ username }}"
+    shell: /bin/zsh
 
 - name: Install oh-my-zsh
   ansible.builtin.include_role:
@@ -55,7 +49,7 @@
     mode: 0664
 
 - name: Create .gitconfig based on profile
-  template:
+  ansible.builtin.template:
     src: roles/base/templates/.gitconfig.j2
     dest: "/home/{{ ansible_user_id }}/.gitconfig"
     mode: 0664
@@ -65,3 +59,11 @@
     path: /home/{{ ansible_user_id }}/Git
     state: directory
     mode: 0755
+
+- name: Generate ssh key pair if not present
+  community.crypto.openssh_keypair:
+    path: "~/.ssh/id_rsa"
+    type: rsa
+    size: 4096
+    state: present
+    force: false

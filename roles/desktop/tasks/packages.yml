@@ -4,3 +4,8 @@
     name:
       - fonts-powerline
       - gnome-tweaks
+
+- name: Setup FlatPak Support
+  package:
+    name: flatpak
+    state: present

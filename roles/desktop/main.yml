@@ -1,4 +1,2 @@
-- name: Desktop Profile
-  tasks:
-    - include: tasks/packages.yml
-    - include: tasks/personalisation.yml
+- ansible.builtin.include_tasks: tasks/packages.yml
+- ansible.builtin.include_tasks: tasks/personalisation.yml

@@ -7,7 +7,7 @@
 
 - name: Copy .zshrc file
   ansible.builtin.copy:
-    src: files/.zshrc
+    src: roles/base/files/.zshrc
     dest: "/home/{{ ansible_user_id }}/.zshrc"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"

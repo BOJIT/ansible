@@ -6,36 +6,33 @@
     fruit: apple
 
   pre_tasks:
-    - name: update repositories
-      apt:
-        update_cache: yes
-      changed_when: False
+    - name: Update Repositories
+      ansible.builtin.apt:
+        update_cache: true
+      changed_when: false
 
   tasks:
-    - name: TEST MESSAGE
+    - name: Import profile variables
       ansible.builtin.debug:
         msg: "our fruit is {{ fruit }}"
 
-    - name: install packages
-      package:
-        name:
-          - zsh
-
-    - name: copy wallpaper file
-      copy:
+    - name: Copy Wallpaper File
+      ansible.builtin.copy:
         src: roles/desktop/files/wallpaper.jpg
         dest: /usr/share/backgrounds/ansible-wallpaper.jpg
         owner: root
         group: root
+        mode: 0700
 
-    - name: set wallpaper
-      become_user: "{{ ansible_user_id }}"
-      community.general.dconf:
-        key: "/org/gnome/desktop/background/picture-uri"
-        value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
 
-    - name: set wallpaper position
-      become_user: "{{ ansible_user_id }}"
-      community.general.dconf:
-        key: "/org/gnome/desktop/background/picture-options"
-        value: "'zoom'"
+# - name: set wallpaper
+#   become_user: "{{ ansible_user_id }}"
+#   community.general.dconf:
+#     key: "/org/gnome/desktop/background/picture-uri"
+#     value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
+
+# - name: set wallpaper position
+#   become_user: "{{ ansible_user_id }}"
+#   community.general.dconf:
+#     key: "/org/gnome/desktop/background/picture-options"
+#     value: "'zoom'"

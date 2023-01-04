@@ -5,10 +5,12 @@
 # - desktop: installs GNOME/Ubuntu 22.04 environment
 role: desktop
 
+# Git configuration
 git:
   username: myUsername
   email: MyEmail
 
+# Software configuration: not all software is available in base role
 software:
   dockerDesktop: false
   googleChrome: true

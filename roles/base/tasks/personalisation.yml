@@ -1,3 +1,23 @@
 # Features:
 # - Set default shell, config files, etc...
 
+# - name: Make zsh Default shell
+
+# - name: Install oh-my-zsh
+
+- name: Copy .zshrc file
+  ansible.builtin.copy:
+    src: files/.zshrc
+    dest: "/home/{{ ansible_user_id }}/.zshrc"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0664
+
+- name: Hush login
+  ansible.builtin.copy:
+    content: ""
+    dest: "/home/{{ ansible_user_id }}/.hushlogin"
+    force: false
+    group: sys
+    owner: root
+    mode: 0664

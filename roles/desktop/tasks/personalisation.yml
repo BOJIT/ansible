@@ -12,7 +12,7 @@
     dest: /usr/share/backgrounds/ansible-wallpaper.jpg
     owner: root
     group: root
-    mode: 0700
+    mode: 0644
 
 - name: Set wallpaper
   become_user: "{{ ansible_user_id }}"

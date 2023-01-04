@@ -25,5 +25,14 @@
     key: "/org/gnome/desktop/background/picture-options"
     value: "'zoom'"
 
-# - name: Resize taskbar
+- name: Resize taskbar
+  become_user: "{{ ansible_user_id }}"
+  community.general.dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size"
+    value: "22"
 
+- name: Rlocate taskbar
+  become_user: "{{ ansible_user_id }}"
+  community.general.dconf:
+    key: "/org/gnome/shell/extensions/dash-to-dock/dock-position"
+    value: "'BOTTOM'"

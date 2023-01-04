@@ -20,20 +20,8 @@
         msg: "our role is {{ profile.role }}"
 
     - name: Perform base role tasks
-      ansible.builtin.include_tasks: "roles/base/main.yaml"
+      ansible.builtin.include_tasks: "roles/base/main.yml"
 
     - name: Perform desktop role tasks
-      ansible.builtin.include_tasks: "roles/desktop/main.yaml"
+      ansible.builtin.include_tasks: "roles/desktop/main.yml"
       when: profile.role == "desktop"
-
-# - name: set wallpaper
-#   become_user: "{{ ansible_user_id }}"
-#   community.general.dconf:
-#     key: "/org/gnome/desktop/background/picture-uri"
-#     value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
-
-# - name: set wallpaper position
-#   become_user: "{{ ansible_user_id }}"
-#   community.general.dconf:
-#     key: "/org/gnome/desktop/background/picture-options"
-#     value: "'zoom'"

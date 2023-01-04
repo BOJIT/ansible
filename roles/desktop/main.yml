@@ -3,6 +3,11 @@
 - ansible.builtin.include_tasks: tasks/remove_unused.yml
 
 # Install software if in config
+
+- name: Install Google Chrome
+  ansible.builtin.include_tasks: "tasks/software/google_chrome.yml"
+  when: profile.software.googleChrome == true
+
 - name: Install Visual Studio Code
   ansible.builtin.include_tasks: "tasks/software/visual_studio_code.yml"
   when: profile.software.visualStudioCode == true

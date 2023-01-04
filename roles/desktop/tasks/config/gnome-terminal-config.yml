@@ -4,11 +4,11 @@
     key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/background-color"
     value: "'rgb(0,43,54)'"
 
-- name: Terminal styling 2
-  become_user: "{{ ansible_user_id }}"
-  community.general.dconf:
-    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/font"
-    value: "'DejaVu Sans Mono'"
+# - name: Terminal styling 2
+#   become_user: "{{ ansible_user_id }}"
+#   community.general.dconf:
+#     key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/font"
+#     value: "'DejaVu Sans Mono'"
 
 - name: Terminal styling 3
   become_user: "{{ ansible_user_id }}"

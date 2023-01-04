@@ -3,6 +3,7 @@
   ansible.builtin.package:
     state: latest
     name:
+      - fonts-powerline
       - gnome-tweaks
 
 - name: Setup FlatPak Support

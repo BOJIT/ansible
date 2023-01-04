@@ -1,2 +1,6 @@
-# Features:
-# - Remove libreoffice, solitaire/other GNOME stuff that is not used
+- name: Remove LibreOffice if present
+  become: true
+  ansible.builtin.apt:
+    pkg: libreoffice*
+    state: absent
+    purge: true

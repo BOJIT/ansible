@@ -35,11 +35,15 @@
     key: "/org/gnome/shell/extensions/dash-to-dock/dock-position"
     value: "'BOTTOM'"
 
-# Load terminal defaults
+- name: Set dark mode
+  become_user: "{{ ansible_user_id }}"
+  community.general.dconf:
+    key: "org/gnome/desktop/interface/gtk-theme"
+    value: "'Yaru-dark'"
+
 - name: Configure GNOME terminal
   ansible.builtin.include_tasks: config/gnome-terminal-config.yml
 
-# Ensure workspaces span all monitors
 - name: Workspace fix 1
   become_user: "{{ ansible_user_id }}"
   community.general.dconf:

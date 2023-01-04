@@ -1,2 +1,8 @@
 - ansible.builtin.include_tasks: tasks/packages.yml
 - ansible.builtin.include_tasks: tasks/personalisation.yml
+- ansible.builtin.include_tasks: tasks/remove_unused.yml
+
+# Install software if in config
+- name: Install Visual Studio Code
+  ansible.builtin.include_tasks: "tasks/software/visual_studio_code.yml"
+  when: profile.software.visualStudioCode == true

@@ -1,9 +1,7 @@
 - hosts: localhost
+  name: Main Play
   connection: local
   become: true
-
-  vars:
-    fruit: apple
 
   pre_tasks:
     - name: Update Repositories
@@ -11,10 +9,15 @@
         update_cache: true
       changed_when: false
 
+    - name: Fetch profile
+      ansible.builtin.include_vars:
+        file: ~/.ansible-profile.yml
+        name: profile
+
   tasks:
     - name: Import profile variables
       ansible.builtin.debug:
-        msg: "our fruit is {{ fruit }}"
+        msg: "our profile is {{ profile }}"
 
     - name: Copy Wallpaper File
       ansible.builtin.copy:

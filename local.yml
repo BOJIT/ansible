@@ -1,17 +1,22 @@
-# tasks to complete before running roles
-- hosts: all
-  tags: always
+- hosts: localhost
+  connection: local
   become: true
-  pre_tasks:
-    - name: pre-run | update package cache (debian, etc)
-      tags: always
-      apt: update_cache=yes
-      changed_when: False
-      when: ansible_distribution in ["Debian", "Ubuntu"]
 
-- hosts: all
-  become: true
+  vars:
+    fruit: apple
+
+  pre_tasks:
+    - name: update repositories
+      apt:
+        update_cache: yes
+      changed_when: False
+
   tasks:
+    - name: TEST MESSAGE
+      ansible.builtin.debug:
+        msg: "our fruit is {{ fruit }}"
+        verbosity: 2
+
     - name: install packages
       package:
         name:

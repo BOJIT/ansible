@@ -13,5 +13,8 @@ sudo apt-get install -y curl git
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py --user
 
+# Install ansible and temporarily add to PATH
 python3 -m pip install --user ansible
+PATH=$PATH:~/.local/bin
+
 ansible-pull -U https://github.com/BOJIT/ansible.git

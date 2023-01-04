@@ -6,6 +6,7 @@
   register: shell_check
 
 - name: Change default shell to zsh
+  become: true
   ansible.builtin.shell: chsh -s $(which zsh)
   when: shell_check.stdout != "zsh"
 

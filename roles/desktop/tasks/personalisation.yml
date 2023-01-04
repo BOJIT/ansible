@@ -6,6 +6,7 @@
 # - Set gnome-terminal config/background/font choice
 
 - name: Copy Wallpaper File
+  become: true
   ansible.builtin.copy:
     src: roles/desktop/files/wallpaper.jpg
     dest: /usr/share/backgrounds/ansible-wallpaper.jpg

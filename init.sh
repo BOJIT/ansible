@@ -19,6 +19,9 @@ rm ~/get-pip.py
 python3 -m pip install --user ansible --no-warn-script
 PATH=$PATH:~/.local/bin
 
+# Install any required ansible modules
+ansible-galaxy collection install community.general
+
 # Ansible handles the rest!
 echo "##########################################"
 ansible-pull -U https://github.com/BOJIT/ansible.git

@@ -15,7 +15,6 @@
     - name: TEST MESSAGE
       ansible.builtin.debug:
         msg: "our fruit is {{ fruit }}"
-        verbosity: 2
 
     - name: install packages
       package:

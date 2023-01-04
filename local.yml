@@ -9,8 +9,7 @@
       changed_when: False
       when: ansible_distribution in ["Debian", "Ubuntu"]
 
-- hosts: localhost
-  connection: local
+- hosts: all
   become: true
   tasks:
     - name: install packages

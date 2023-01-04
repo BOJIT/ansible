@@ -1,6 +1,5 @@
 # This file provides any personal information/secrets required for setup
 
-username: Match your linux Username
 git:
   username: myUsername
   email: MyEmail

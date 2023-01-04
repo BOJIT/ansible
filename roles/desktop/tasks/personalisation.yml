@@ -1,12 +1,25 @@
 # Features:
 # - set background wallpaper/lockscreen
 # - workspaces span displays
+# - Taskbar at bottom
 # - 2 finger right-click
 # - Set gnome-terminal config/background/font choice
 
-- name: personalisation settings
-  tags: packages, personalisation
-  package:
-    state: latest
-    name:
-      - gnome-tweaks
+- name: Copy Wallpaper File
+  ansible.builtin.copy:
+    src: roles/desktop/files/wallpaper.jpg
+    dest: /usr/share/backgrounds/ansible-wallpaper.jpg
+    owner: root
+    group: root
+    mode: 0700
+# - name: set wallpaper
+#   become_user: "{{ ansible_user_id }}"
+#   community.general.dconf:
+#     key: "/org/gnome/desktop/background/picture-uri"
+#     value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
+
+# - name: set wallpaper position
+#   become_user: "{{ ansible_user_id }}"
+#   community.general.dconf:
+#     key: "/org/gnome/desktop/background/picture-options"
+#     value: "'zoom'"

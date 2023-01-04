@@ -1,6 +1,5 @@
-- name: system setup | utilities | install utility packages
-  tags: packages,system,settings
-  package:
+- name: Install Base Packages
+  ansible.builtin.package:
     state: latest
     name:
       - build-essential

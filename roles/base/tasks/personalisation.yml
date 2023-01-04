@@ -1,9 +1,3 @@
 # Features:
 # - Set default shell, config files, etc...
 
-- name: personalisation settings
-  tags: packages, personalisation
-  package:
-    state: latest
-    name:
-      - fonts-powerline

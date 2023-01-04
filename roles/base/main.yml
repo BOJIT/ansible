@@ -1,4 +1,4 @@
-
-- name: Print current role
-  ansible.builtin.debug:
-    msg: "our role is {{ profile.role }}"
+- name: Base Profile
+  tasks:
+    - include: tasks/packages.yml
+    - include: tasks/personalisation.yml

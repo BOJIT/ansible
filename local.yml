@@ -4,55 +4,27 @@
   become: true
 
   tasks:
-  - name: install packages
-    package:
-      name:
-        - htop
-        - tmux
-        - vim-nox
+    - name: install packages
+      package:
+        name:
+          - zsh
 
-  - name: copy wallpaper file
-    copy:
-      src: files/wallpaper.jpg
-      dest: /usr/share/backgrounds/ansible-wallpaper.jpg
-      owner: root
-      group: root
+    - name: copy wallpaper file
+      copy:
+        src: roles/desktop/files/wallpaper.jpg
+        dest: /usr/share/backgrounds/ansible-wallpaper.jpg
+        owner: root
+        group: root
 
-  - name: set wallpaper
-    become_user: james
-    dconf:
-      key: "/org/gnome/desktop/background/picture-uri"
-      value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
+    - name: set wallpaper
+      become_user: jpedley
+      dconf:
+        key: "/org/gnome/desktop/background/picture-uri"
+        value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
 
-  - name: set wallpaper position
-    become_user: jay
-    dconf:
-      key: "/org/gnome/desktop/background/picture-options"
-      value: "'zoom'"
-
-  - name: copy .bashrc file
-    copy:
-     src: files/bashrc
-     dest: /home/jay/.bashrc
-     owner: jay
-     group: jay
-
-  - name: add ansible user
-    user:
-      name: velociraptor
-      system: yes
-
-  - name: set up sudo for ansible user
-    copy:
-      src: files/sudoer_velociraptor
-      dest: /etc/sudoers.d/velociraptor
-      owner: root
-      group: root
-      mode: 0440
-
-  - name: add ansible-pull cron job
-    cron:
-      name: ansible auto-provision
-      user: velociraptor
-      minute: "*/10"
-      job: ansible-pull -o -U https://github.com/jlacroix82/ansible_pull_tutorial.git
+    - name: set wallpaper position
+      become_user: jpedley
+      dconf:
+        key: "/org/gnome/desktop/background/picture-options"
+        value: "'zoom'"
+# Run profiles

@@ -12,3 +12,6 @@ export NVM_DIR="$HOME/.nvm"
 # Pipenv/Pyenv (Python)
 export PATH="$PATH:/$HOME/.pyenv/bin:/$HOME/.local/bin"
 eval "$(pyenv virtualenv-init -)"
+
+# Custom aliases
+alias bojit-sync="ansible-pull -U https://github.com/BOJIT/ansible.git"

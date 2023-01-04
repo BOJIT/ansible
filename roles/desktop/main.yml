@@ -8,9 +8,13 @@
   ansible.builtin.include_tasks: "tasks/software/google_chrome.yml"
   when: profile.software.googleChrome == true
 
-- name: Install spotify
+- name: Install Spotify
   ansible.builtin.include_tasks: "tasks/software/spotify.yml"
   when: profile.software.spotify == true
+
+- name: Install Sublime Merge
+  ansible.builtin.include_tasks: "tasks/software/sublime_merge.yml"
+  when: profile.software.sublimeMerge == true
 
 - name: Install Visual Studio Code
   ansible.builtin.include_tasks: "tasks/software/visual_studio_code.yml"

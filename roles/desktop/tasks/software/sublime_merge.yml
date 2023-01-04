@@ -1,0 +1,6 @@
+- name: Install Sublime Merge
+  become: true
+  flatpak:
+    name: com.sublimemerge.App
+    method: user
+    state: present

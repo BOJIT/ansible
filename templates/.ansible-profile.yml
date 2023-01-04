@@ -8,3 +8,11 @@ role: desktop
 git:
   username: myUsername
   email: MyEmail
+
+software:
+  dockerDesktop: false
+  googleChrome: true
+  spotify: true
+  sublimeMerge: true
+  visualStudioCode: true
+  wireshark: false

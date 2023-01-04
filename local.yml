@@ -30,12 +30,12 @@
 
     - name: set wallpaper
       become_user: "{{ ansible_user_id }}"
-      dconf:
+      community.general.dconf:
         key: "/org/gnome/desktop/background/picture-uri"
         value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
 
     - name: set wallpaper position
       become_user: "{{ ansible_user_id }}"
-      dconf:
+      community.general.dconf:
         key: "/org/gnome/desktop/background/picture-options"
         value: "'zoom'"

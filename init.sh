@@ -19,6 +19,9 @@ rm ~/get-pip.py
 python3 -m pip install --user ansible psutil --no-warn-script
 PATH=$PATH:~/.local/bin
 
+# Install ansible-galaxy dependencies: not ideal handling here
+ansible-galaxy install gantsign.oh-my-zsh
+
 # Ansible handles the rest!
 echo "##########################################"
 ansible-pull -U https://github.com/BOJIT/ansible.git

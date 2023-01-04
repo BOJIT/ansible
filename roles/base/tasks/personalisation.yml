@@ -1,9 +1,18 @@
 # Features:
 # - Set default shell, config files, etc...
 
-# - name: Make zsh Default shell
+- name: Check if shell is zsh
+  ansible.builtin.shell: echo $0
+  register: shell_check
 
-# - name: Install oh-my-zsh
+- name: Change default shell to zsh
+  ansible.builtin.shell: chsh -s $(which zsh)
+  when: shell_check.stdout != "zsh"
+
+- name: Install oh-my-zsh
+  gantsign.oh-my-zsh:
+    oh_my_zsh_theme: agnoster
+    oh_my_zsh_update_mode: reminder
 
 - name: Copy .zshrc file
   ansible.builtin.copy:
@@ -19,4 +28,5 @@
     dest: "/home/{{ ansible_user_id }}/.hushlogin"
     force: false
     owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
     mode: 0664

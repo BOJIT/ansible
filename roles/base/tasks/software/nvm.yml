@@ -4,8 +4,11 @@
     dest: "~/.nvm"
     version: "master"
 
-- name: Source nvm
-  ansible.builtin.shell: "bash ~/.nvm/nvm.sh"
+- name: Source nvm (as done in .zshrc) - 1
+  ansible.builtin.shell: export NVM_DIR="$HOME/.nvm"
+
+- name: Source nvm (as done in .zshrc) - 2
+  ansible.builtin.shell: "[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\""
 
 - name: Install Node.js lts
   ansible.builtin.shell: "nvm install --lts"

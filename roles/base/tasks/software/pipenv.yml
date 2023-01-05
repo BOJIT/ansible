@@ -2,4 +2,7 @@
   ansible.builtin.include_role:
     name: avanov.pyenv
 
-# - name: Install pipenv for user
+- name: Install pipenv for user
+  ansible.builtin.pip:
+    name: pipenv
+    extra_args: --user

@@ -4,7 +4,9 @@
 
 # Install software if in config
 
-# TODO Docker desktop
+- name: Install Docker Desktop
+  ansible.builtin.include_tasks: "tasks/software/docker_desktop.yml"
+  when: profile.software.dockerDesktop == true
 
 - name: Install Google Chrome
   ansible.builtin.include_tasks: "tasks/software/google_chrome.yml"

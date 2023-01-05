@@ -11,7 +11,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Pipenv/Pyenv (Python)
 export PATH="$PATH:/$HOME/.pyenv/bin:/$HOME/.local/bin"
-eval "$(pyenv virtualenv-init -)" TODO remove later!
+eval "$(pyenv virtualenv-init -)"
 
 # Functions
 function bojit-sync() {

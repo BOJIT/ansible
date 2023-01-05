@@ -1,7 +1,5 @@
 # Ansible Galaxy Requirements
 
-- src: gantsign.pyenv
-
 - src: gantsign.oh-my-zsh
 
 - src: gantsign.visual-studio-code

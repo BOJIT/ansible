@@ -1,28 +1,14 @@
-# - name: Install pyenv first
-#   ansible.builtin.include_role:
-#     name: gantsign.pyenv
-#   vars:
-#     pyenv_users:
-#       - "{{ ansible_user_id }}"
-#     # pyenv_path: "/home/{{ ansible_user_id }}/.pyenv"
+- name: Install Pyenv
+  ansible.builtin.git:
+    repo: "https://github.com/pyenv/pyenv.git"
+    dest: /home/{{ ansible_user_id }}/.pyenv
+    depth: 1
 
-- name: Clone Pyenv for users
-  become: yes
-  become_user: "{{ ansible_user_id  }}"
-  command: "git clone -c core.autocrlf=input --depth=1 https://github.com/pyenv/pyenv.git ~/.pyenv"
-  args:
-    creates: "/home/{{ ansible_user_id }}/.pyenv"
-  with_items:
-    - "{{ ansible_user_id }}"
-
-- name: set permissions of pyenv for users
-  become: yes
-  file:
-    path: "/home/{{ ansible_user_id }}/.pyenv"
-    mode: "go-w"
-    recurse: yes
-  with_items:
-    - "{{ ansible_user_id }}"
+- name: Install pyenv-virtualenv plugin
+  ansible.builtin.git:
+    repo: "https://github.com/pyenv/pyenv-virtualenv.git"
+    dest: /home/{{ ansible_user_id }}/.pyenv/plugins/pyenv-virtualenv
+    depth: 1
 
 - name: Install pipenv for user
   ansible.builtin.pip:

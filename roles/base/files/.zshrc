@@ -10,8 +10,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Pipenv/Pyenv (Python)
+export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:/$HOME/.pyenv/bin:/$HOME/.local/bin"
-eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init -)"
 
 # Functions
 function bojit-sync() {

@@ -1,7 +1,7 @@
 - name: Install nvm latest
   git:
-    repo: https://github.com/creationix/nvm.git
-    dest: "{{ nvm_install_path }}"
+    repo: https://github.com/nvm-sh/nvm.git
+    dest: "~/.nvm"
     version: "{% if nvm_version=='latest' %}master{% else %}{{ nvm_version }}{% endif %}"
 
 - name: Install Node.js lts

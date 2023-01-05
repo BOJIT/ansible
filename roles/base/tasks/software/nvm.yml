@@ -1,13 +1,18 @@
 - name: Install nvm latest
-  git:
+  ansible.builtin.git:
     repo: https://github.com/nvm-sh/nvm.git
     dest: "~/.nvm"
     version: "master"
 
+- name: Make script executable
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/.nvm/nvm.sh"
+    mode: 0775
+
 - name: Source nvm
-  shell: "~/.nvm/nvm.sh"
+  ansible.builtin.shell: "~/.nvm/nvm.sh"
 
 - name: Install Node.js lts
-  shell: "nvm install --lts"
+  ansible.builtin.shell: "nvm install --lts"
   register: nvm_install_result
   changed_when: "'is already installed.' not in nvm_install_result.stderr"

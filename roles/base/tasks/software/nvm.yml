@@ -4,13 +4,8 @@
     dest: "~/.nvm"
     version: "master"
 
-- name: Make script executable
-  ansible.builtin.file:
-    path: "/home/{{ ansible_user_id }}/.nvm/nvm.sh"
-    mode: 0775
-
 - name: Source nvm
-  ansible.builtin.shell: "~/.nvm/nvm.sh"
+  ansible.builtin.shell: "zsh ~/.nvm/nvm.sh"
 
 - name: Install Node.js lts
   ansible.builtin.shell: "nvm install --lts"

@@ -1,6 +1,6 @@
 # Ansible Galaxy Requirements
 
-- src: avanov.pyenv
+- src: gantsign.pyenv
 
 - src: gantsign.oh-my-zsh
 

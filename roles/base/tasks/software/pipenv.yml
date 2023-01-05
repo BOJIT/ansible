@@ -1,8 +1,10 @@
 - name: Install pyenv first
   ansible.builtin.include_role:
-    name: avanov.pyenv
+    name: gantsign.pyenv
   vars:
-    pyenv_path: "/home/{{ ansible_user_id }}/.pyenv"
+    pyenv_users:
+      - "{{ ansible_user_id }}"
+    # pyenv_path: "/home/{{ ansible_user_id }}/.pyenv"
 
 - name: Install pipenv for user
   ansible.builtin.pip:

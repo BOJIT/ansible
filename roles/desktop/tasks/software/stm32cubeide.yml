@@ -1,0 +1,5 @@
+- name: Install STM32CubeIDE
+  flatpak:
+    name: com.st.STM32CubeIDE
+    method: user
+    state: present

@@ -11,12 +11,16 @@
   when: profile.software.googleChrome == true
 
 - name: Install Obsidian
-  ansible.builtin.include_tasks: "tasks/software/spotify.yml"
-  when: profile.software.spotify == true
+  ansible.builtin.include_tasks: "tasks/software/obsidian.yml"
+  when: profile.software.obsidian == true
 
 - name: Install Spotify
   ansible.builtin.include_tasks: "tasks/software/spotify.yml"
   when: profile.software.spotify == true
+
+- name: Install STM32CubeIDE
+  ansible.builtin.include_tasks: "tasks/software/stm32cubeide.yml"
+  when: profile.software.stm32cubeide == true
 
 - name: Install Sublime Merge
   ansible.builtin.include_tasks: "tasks/software/sublime_merge.yml"

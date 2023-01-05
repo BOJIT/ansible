@@ -3,3 +3,6 @@
 
 # Install NVM
 - ansible.builtin.include_tasks: tasks/software/nvm.yml
+
+# Install Pipenv
+- ansible.builtin.include_tasks: tasks/software/pipenv.yml

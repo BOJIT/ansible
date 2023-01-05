@@ -1,0 +1,5 @@
+- name: Install pyenv first
+  ansible.builtin.include_role:
+    name: avanov.pyenv
+
+# - name: Install pipenv for user

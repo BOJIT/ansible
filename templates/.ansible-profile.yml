@@ -16,6 +16,7 @@ software:
   googleChrome: true
   obsidian: false
   spotify: true
+  stm32cubeide: false
   sublimeMerge: true
   visualStudioCode: true
   wireshark: false

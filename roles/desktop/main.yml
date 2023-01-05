@@ -10,6 +10,10 @@
   ansible.builtin.include_tasks: "tasks/software/google_chrome.yml"
   when: profile.software.googleChrome == true
 
+- name: Install Obsidian
+  ansible.builtin.include_tasks: "tasks/software/spotify.yml"
+  when: profile.software.spotify == true
+
 - name: Install Spotify
   ansible.builtin.include_tasks: "tasks/software/spotify.yml"
   when: profile.software.spotify == true

@@ -14,6 +14,7 @@ git:
 software:
   dockerDesktop: false
   googleChrome: true
+  obsidian: false
   spotify: true
   sublimeMerge: true
   visualStudioCode: true

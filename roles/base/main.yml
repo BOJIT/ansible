@@ -1,2 +1,5 @@
 - ansible.builtin.include_tasks: tasks/packages.yml
 - ansible.builtin.include_tasks: tasks/personalisation.yml
+
+# Install NVM
+- ansible.builtin.include_tasks: tasks/software/nvm.yml

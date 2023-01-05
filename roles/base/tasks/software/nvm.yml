@@ -1,6 +1,12 @@
-- name: Install NVM
-  ansible.builtin.include_role:
-    name: stephdewit.nvm
-  vars:
-    nvm_version: "latest"
-    nvm_node_version: "latest"
+- name: Install nvm latest
+  git:
+    repo: https://github.com/creationix/nvm.git
+    dest: "{{ nvm_install_path }}"
+    version: "{% if nvm_version=='latest' %}master{% else %}{{ nvm_version }}{% endif %}"
+
+- name: Install Node.js lts
+  shell: ". ./nvm.sh && nvm install --lts"
+  args:
+    chdir: "~/.nvm"
+  register: nvm_install_result
+  changed_when: "'is already installed.' not in nvm_install_result.stderr"

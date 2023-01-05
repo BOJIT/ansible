@@ -5,7 +5,7 @@
     version: "master"
 
 - name: Source nvm
-  ansible.builtin.shell: "zsh ~/.nvm/nvm.sh"
+  ansible.builtin.shell: "bash ~/.nvm/nvm.sh"
 
 - name: Install Node.js lts
   ansible.builtin.shell: "nvm install --lts"

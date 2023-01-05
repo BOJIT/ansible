@@ -35,8 +35,7 @@
 - name: Install Docker Desktop
   become: true
   ansible.builtin.apt:
-    name:
-      - /home/{{ username }}/dockerDesktop.deb
+    deb: /home/{{ username }}/dockerDesktop.deb
     update_cache: yes
   when: '"docker-desktop" not in ansible_facts.packages'
 

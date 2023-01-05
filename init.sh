@@ -20,6 +20,7 @@ python3 -m pip install --user ansible psutil --no-warn-script
 PATH=$PATH:~/.local/bin
 
 # Install ansible-galaxy dependencies: handled afterwards in alias
+mkdir -p ~/.ansible/tmp
 curl https://raw.githubusercontent.com/BOJIT/ansible/main/requirements.yml > ~/.ansible/tmp/requirements.yml
 ansible-galaxy install -r ~/.ansible/tmp/requirements.yml
 rm ~/.ansible/tmp/requirements.yml

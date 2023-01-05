@@ -1,4 +1,5 @@
 - name: Install pyenv first
+  become: true
   ansible.builtin.include_role:
     name: avanov.pyenv
 

@@ -1,3 +1,7 @@
+- name: Set username as variable
+  ansible.builtin.set_fact:
+    username: "{{ ansible_user_id }}"
+
 - name: Install Build Requirements
   become: true
   ansible.builtin.package:
@@ -17,6 +21,7 @@
     url: https://download.docker.com/linux/ubuntu/gpg
 
 - name: Add Docker APT repository
+  become: true
   ansible.builtin.apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/{{ ansible_system | lower }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable
 
@@ -27,15 +32,16 @@
   when: '"docker-desktop" not in ansible_facts.packages'
 
 - name: Install Docker Desktop
-  apt:
+  become: true
+  ansible.builtin.apt:
     name:
-      - /home/{{ ansible_user_id }}/dockerDesktop.deb
+      - /home/{{ username }}/dockerDesktop.deb
     update_cache: yes
   when: '"docker-desktop" not in ansible_facts.packages'
 
 - name: Remove installer file
   ansible.builtin.file:
-    path: /home/{{ ansible_user_id }}/dockerDesktop.deb
+    path: /home/{{ username }}/dockerDesktop.deb
     state: absent
   when: '"docker-desktop" not in ansible_facts.packages'
 

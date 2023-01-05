@@ -7,7 +7,6 @@
       - cmake
       - curl
       - git
-      - python3-dev
       - ranger
       - rsync
       - screen

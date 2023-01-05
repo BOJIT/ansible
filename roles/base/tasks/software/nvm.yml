@@ -3,4 +3,4 @@
     name: stephdewit.nvm
   vars:
     nvm_version: "latest"
-    nvm_node_version: "latest"
+    # nvm_node_version: "latest"

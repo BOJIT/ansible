@@ -5,8 +5,6 @@
     version: "master"
 
 - name: Install Node.js lts
-  shell: ". ./nvm.sh && nvm install --lts"
-  args:
-    chdir: "~/.nvm"
+  shell: "~/.nvm/nvm.sh && nvm install --lts"
   register: nvm_install_result
   changed_when: "'is already installed.' not in nvm_install_result.stderr"

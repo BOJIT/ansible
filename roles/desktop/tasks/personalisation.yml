@@ -58,4 +58,4 @@
   become_user: "{{ ansible_user_id }}"
   community.general.dconf:
     key: "/org/gnome/mutter/workspaces-only-on-primary"
-    value: "true"
+    value: "false"

@@ -33,4 +33,4 @@
       - traceroute
       - wget
       - zsh
-  when: ansible_distribution == 'MacOS'
+  when: ansible_distribution == 'MacOSX'

@@ -1,11 +1,13 @@
 - name: Set Mac Variables
   ansible.builtin.set_fact:
     userpath: /Users
+    usergroup: staff
   when: ansible_distribution == 'MacOSX'
   
 - name: Set Linux Variables
   ansible.builtin.set_fact:
     userpath: /home
+    usergroup: "{{ ansible_user_id }}"
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Set username as variable
@@ -31,7 +33,7 @@
     src: roles/base/files/.zshrc
     dest: "{{ userpath }}/{{ ansible_user_id }}/.zshrc"
     owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    group: "{{ usergroup }}"
     mode: 0664
 
 - name: Hush login
@@ -40,7 +42,7 @@
     dest: "{{ userpath }}/{{ ansible_user_id }}/.hushlogin"
     force: false
     owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    group: "{{ usergroup }}"
     mode: 0664
 
 - name: Create .gitconfig based on profile

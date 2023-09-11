@@ -1,15 +1,3 @@
-- name: Set Mac Variables
-  ansible.builtin.set_fact:
-    userpath: /Users
-    usergroup: staff
-  when: ansible_distribution == 'MacOSX'
-  
-- name: Set Linux Variables
-  ansible.builtin.set_fact:
-    userpath: /home
-    usergroup: "{{ ansible_user_id }}"
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
 - name: Set username as variable
   ansible.builtin.set_fact:
     username: "{{ ansible_user_id }}"

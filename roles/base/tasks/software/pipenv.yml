@@ -1,13 +1,13 @@
 - name: Install Pyenv
   ansible.builtin.git:
     repo: "https://github.com/pyenv/pyenv.git"
-    dest: /home/{{ ansible_user_id }}/.pyenv
+    dest: {{ userpath }}/{{ ansible_user_id }}/.pyenv
     depth: 1
 
 - name: Install pyenv-virtualenv plugin
   ansible.builtin.git:
     repo: "https://github.com/pyenv/pyenv-virtualenv.git"
-    dest: /home/{{ ansible_user_id }}/.pyenv/plugins/pyenv-virtualenv
+    dest: {{ userpath }}/{{ ansible_user_id }}/.pyenv/plugins/pyenv-virtualenv
     depth: 1
 
 - name: Install pipenv for user

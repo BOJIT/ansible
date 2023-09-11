@@ -5,6 +5,6 @@
     version: "master"
 
 - name: Source nvm (as done in .zshrc) and install lts
-  ansible.builtin.command: bash {{ userpath }}/{{ ansible_user_id }}/.nvm/nvm.sh && nvm install --lts
+  ansible.builtin.command: "bash {{ userpath }}/{{ ansible_user_id }}/.nvm/nvm.sh && nvm install --lts"
   register: nvm_install_result
   changed_when: "'is already installed.' not in nvm_install_result.stderr"

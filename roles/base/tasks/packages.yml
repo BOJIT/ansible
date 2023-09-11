@@ -25,10 +25,10 @@
       - curl
       - git
       - htop
-      - libssl-dev
       - ranger
       - rsync
       - screen
-      - traceroute
       - wget
   when: ansible_distribution == 'MacOSX'
+
+# Install Desktop packages (no headless MacOS variants)

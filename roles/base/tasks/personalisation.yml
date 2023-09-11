@@ -57,9 +57,15 @@
     state: directory
     mode: 0755
 
+- name: Ensure SSH directory is present
+  ansible.builtin.file:
+    path: "{{ userpath }}/{{ ansible_user_id }}/.ssh"
+    state: directory
+    mode: 0755
+
 - name: Generate ssh key pair if not present
   community.crypto.openssh_keypair:
-    path: "~/.ssh/id_rsa"
+    path: "{{ userpath }}/{{ ansible_user_id }}/.ssh/id_rsa"
     type: rsa
     size: 4096
     state: present

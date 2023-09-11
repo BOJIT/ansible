@@ -31,4 +31,8 @@
       - wget
   when: ansible_distribution == 'MacOSX'
 
-# Install Desktop packages (no headless MacOS variants)
+# Install core Desktop packages (no headless MacOS variants)
+- name: Install Core MacOS Packages
+  community.general.homebrew_cask:
+    name: iterm2
+    state: present

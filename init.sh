@@ -27,4 +27,4 @@ rm ~/.ansible/tmp/requirements.yml
 
 # Ansible handles the rest!
 echo "##########################################"
-ansible-pull -U https://github.com/BOJIT/ansible.git
+ansible-pull -U https://github.com/BOJIT/ansible.git -K

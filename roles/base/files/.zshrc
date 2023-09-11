@@ -19,5 +19,5 @@ function bojit-sync() {
     curl https://raw.githubusercontent.com/BOJIT/ansible/main/requirements.yml > ~/.ansible/tmp/requirements.yml
     ansible-galaxy install -r ~/.ansible/tmp/requirements.yml
     rm ~/.ansible/tmp/requirements.yml
-    ansible-pull -U https://github.com/BOJIT/ansible.git --ask-become-pass
+    ansible-pull -U https://github.com/BOJIT/ansible.git -K
 }

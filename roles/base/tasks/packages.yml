@@ -1,5 +1,5 @@
 - name: Install Base Packages
-  become: true
+  become: "{{ 'no' if ansible_distribution == 'MacOS' else 'yes' }}"
   ansible.builtin.package:
     state: latest
     name:

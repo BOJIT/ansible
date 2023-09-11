@@ -22,6 +22,16 @@ wget -O - https://raw.githubusercontent.com/BOJIT/ansible/main/init.sh | bash
 bojit-sync
 ```
 
+## Notes for MacOS
+
+On MacOS, you will need to do a few manual commands first:
+
+1 - install `brew` [Homebrew Package Manager](https://brew.sh/)
+
+2 - run `brew install ansible` and `brew install wget`.
+
+You can now run the Ansible playbooks as before
+
 ## Supported Targets
 
 - `Ubuntu 22.04`: Headless and Desktop Variants

@@ -21,7 +21,6 @@
   ansible.builtin.package:
     state: latest
     name:
-      - build-essential
       - cmake
       - curl
       - git
@@ -32,5 +31,4 @@
       - screen
       - traceroute
       - wget
-      - zsh
   when: ansible_distribution == 'MacOSX'

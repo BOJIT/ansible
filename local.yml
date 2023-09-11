@@ -8,6 +8,7 @@
       ansible.builtin.apt:
         update_cache: true
       changed_when: false
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
     - name: Fetch profile
       become: true
@@ -34,9 +35,11 @@
       ansible.builtin.apt:
         autoclean: true
       changed_when: false
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
     - name: Autoremove Orphan Packages
       become: true
       ansible.builtin.apt:
         autoremove: true
         purge: true
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

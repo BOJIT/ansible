@@ -43,10 +43,11 @@
     key: "/org/gnome/desktop/interface/gtk-theme"
     value: "'Yaru-dark'"
 
-- name: Install font to local
+- name: Install fonts to local
   ansible.builtin.copy:
-    src: "roles/desktop/files/DejaVu Sans Mono for Powerline.ttf"
-    dest: "/home/{{ ansible_user_id }}/.local/share/fonts/DejaVu Sans Mono for Powerline.ttf"
+    src: "roles/desktop/files/fonts/"
+    dest: "/home/{{ ansible_user_id }}/.local/share/fonts/"
+    directory_mode:
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644

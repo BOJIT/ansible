@@ -10,6 +10,11 @@
     dest: "{{ userpath }}/{{ ansible_user_id }}/.pyenv/plugins/pyenv-virtualenv"
     depth: 1
 
+- name: Create poetry virtualenv
+  ansible.builtin.command:
+    cmd: "python -m venv {{ userpath }}/{{ ansible_user_id }}/.poetry"
+    creates: "{{ userpath }}/{{ ansible_user_id }}/.poetry"
+
 - name: Install pip and setuptools within the virtual environment
   ansible.builtin.pip:
     name: setuptools

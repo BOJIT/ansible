@@ -1,7 +1,9 @@
 - ansible.builtin.include_tasks: tasks/packages.yml
-- ansible.builtin.include_tasks: tasks/personalisation.yml
 
 # Install Core Tools for Node, Python and Rust
 - ansible.builtin.include_tasks: tasks/software/nvm.yml
-# - ansible.builtin.include_tasks: tasks/software/poetry.yml
+- ansible.builtin.include_tasks: tasks/software/poetry.yml
 # - ansible.builtin.include_tasks: tasks/software/rust.yml
+
+# Personalisation runs last, assuming dependency on packages
+- ansible.builtin.include_tasks: tasks/personalisation.yml

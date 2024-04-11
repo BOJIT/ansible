@@ -1,0 +1,16 @@
+- name: Install pyenv for multi-python version management
+  ansible.builtin.git:
+    repo: "https://github.com/pyenv/pyenv.git"
+    dest: "{{ userpath }}/{{ ansible_user_id }}/.pyenv"
+    depth: 1
+
+- name: Install pip and setuptools within the virtual environment
+  ansible.builtin.pip:
+    name: setuptools
+    virtualenv: "{{ userpath }}/{{ ansible_user_id }}/.poetry"
+    extra_args: -U
+
+- name: Install poetry latest
+  ansible.builtin.pip:
+    name: poetry
+    virtualenv: "{{ userpath }}/{{ ansible_user_id }}/.poetry"

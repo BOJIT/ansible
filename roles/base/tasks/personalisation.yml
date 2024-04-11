@@ -23,9 +23,14 @@
     mode: 0755
 
 - name: Install oh-my-zsh poetry plugin
-  ansible.builtin.command:
-    cmd: "{{ userpath }}/{{ ansible_user_id }}/.poetry/bin/poetry completions zsh > {{ userpath }}/{{ ansible_user_id }}/.oh-my-zsh/plugins/poetry/_poetry"
-    creates: "{{ userpath }}/{{ ansible_user_id }}/.oh-my-zsh/plugins/poetry/_poetry"
+  ansible.builtin.shell: "{{ userpath }}/{{ ansible_user_id }}/.poetry/bin/poetry completions zsh"
+  register: poetry_completions
+
+- name: Add completions for poetry
+  ansible.builtin.copy:
+    content: "{{ poetry_completions }}"
+    dest: "{{ userpath }}/{{ ansible_user_id }}/.oh-my-zsh/plugins/poetry/_poetry"
+    force: no
 
 - name: Copy .zshrc file
   ansible.builtin.copy:

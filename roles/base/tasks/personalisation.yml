@@ -24,7 +24,7 @@
 
 - name: Install oh-my-zsh poetry plugin
   ansible.builtin.command:
-    cmd: "poetry completions zsh > {{ userpath }}/{{ ansible_user_id }}/.oh-my-zsh/plugins/poetry/_poetry"
+    cmd: "{{ userpath }}/{{ ansible_user_id }}/.poetry/bin/poetry completions zsh > {{ userpath }}/{{ ansible_user_id }}/.oh-my-zsh/plugins/poetry/_poetry"
     creates: "{{ userpath }}/{{ ansible_user_id }}/.oh-my-zsh/plugins/poetry/_poetry"
 
 - name: Copy .zshrc file

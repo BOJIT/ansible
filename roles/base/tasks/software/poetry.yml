@@ -21,7 +21,7 @@
     virtualenv: "{{ userpath }}/{{ ansible_user_id }}/.poetry"
     extra_args: -U
 
-# - name: Install poetry latest
-#   ansible.builtin.pip:
-#     name: poetry
-#     virtualenv: "{{ userpath }}/{{ ansible_user_id }}/.poetry"
+- name: Install poetry latest
+  ansible.builtin.pip:
+    name: poetry
+    virtualenv: "{{ userpath }}/{{ ansible_user_id }}/.poetry"

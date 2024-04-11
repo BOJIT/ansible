@@ -14,10 +14,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PATH:/$HOME/.pyenv/bin:/$HOME/.local/bin"
 eval "$(pyenv init -)"
 
-# Poetry (Poetry)
+# Poetry (Python)
 export PATH="$PATH:/$HOME/.poetry/bin"
 
-# Rustup
+# Rustup (Rust)
+[ -f ~/.cargo/env ] && source $HOME/.cargo/env
 
 # Customisation
 prompt_context() {

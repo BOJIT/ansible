@@ -1,7 +1,6 @@
+# Load oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
-
 plugins=(git nvm poetry rust)
-
 ZSH_THEME="agnoster"
 source $ZSH/oh-my-zsh.sh
 
@@ -19,6 +18,13 @@ eval "$(pyenv init -)"
 export PATH="$PATH:/$HOME/.poetry/bin"
 
 # Rustup
+
+# Customisation
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
 
 # Functions
 function bojit-sync() {

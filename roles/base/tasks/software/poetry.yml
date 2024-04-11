@@ -4,6 +4,12 @@
     dest: "{{ userpath }}/{{ ansible_user_id }}/.pyenv"
     depth: 1
 
+- name: Install pyenv-virtualenv plugin
+  ansible.builtin.git:
+    repo: "https://github.com/pyenv/pyenv-virtualenv.git"
+    dest: "{{ userpath }}/{{ ansible_user_id }}/.pyenv/plugins/pyenv-virtualenv"
+    depth: 1
+
 - name: Install pip and setuptools within the virtual environment
   ansible.builtin.pip:
     name: setuptools

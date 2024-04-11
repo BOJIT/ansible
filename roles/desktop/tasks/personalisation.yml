@@ -66,3 +66,6 @@
   community.general.dconf:
     key: "/org/gnome/mutter/workspaces-only-on-primary"
     value: "false"
+
+# - name: Install Gnome Extension for 2D workspaces
+

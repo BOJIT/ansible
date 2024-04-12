@@ -1,0 +1,5 @@
+- name: Install KiCad
+  flatpak:
+    name: org.kicad.KiCad
+    method: user
+    state: present

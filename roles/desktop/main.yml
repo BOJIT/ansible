@@ -12,6 +12,10 @@
   ansible.builtin.include_tasks: "tasks/software/google_chrome.yml"
   when: profile.software.googleChrome == true
 
+- name: Install Kicad
+  ansible.builtin.include_tasks: "tasks/software/kicad.yml"
+  when: profile.software.kicad == true
+
 - name: Install Obsidian
   ansible.builtin.include_tasks: "tasks/software/obsidian.yml"
   when: profile.software.obsidian == true

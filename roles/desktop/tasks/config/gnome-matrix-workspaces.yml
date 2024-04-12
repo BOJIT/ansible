@@ -13,7 +13,7 @@
   ansible.builtin.uri:
     url: https://extensions.gnome.org/extension-info/?pk={{ extension_id }}&shell_version={{ gnome_shell_version }}
     return_content: yes
-    register: r_gnome_extension_info
+  register: r_gnome_extension_info
 
 - name: Set extension manifest as json
   ansible.builtin.set_fact:

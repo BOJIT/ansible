@@ -4,6 +4,7 @@
     state: latest
     name:
       - fonts-powerline
+      - gnome-shell-extension-manager
       - gnome-tweaks
 
 - name: Setup FlatPak Support

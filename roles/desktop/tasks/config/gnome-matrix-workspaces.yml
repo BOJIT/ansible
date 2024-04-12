@@ -1,0 +1,48 @@
+- name: Set extension ID and URL as variables
+  ansible.builtin.set_fact:
+    extension_id: "wsmatrixmartin@zurowietz.de"
+    extension_url: "/extension/1485/workspace-matrix/"
+
+- name: Check if workspace matrix extension is already installed
+  ansible.builtin.stat:
+    path: "{{ userpath }}/{{ ansible_user_id }}/.local/share/gnome-shell/extensions/{{ extension_id }}/metadata.json"
+  register: r_gnome_extensions_check_existing
+
+- name: Create temporary download directory
+  ansible.builtin.tempfile:
+    state: directory
+    suffix: ".gnome_extension_download"
+  register: r_gnome_extension_download_dir
+  changed_when: no
+  when: r_gnome_extensions_check_existing.stat.exists == False
+
+- block:
+    - name: Download workspace matrix extension
+      ansible.builtin.get_url:
+        url: https://extensions.gnome.org{{ extension_url }}
+        dest: "{{ r_gnome_extension_download_dir.path }}/{{ extension_id }}.zip"
+      register: r_gnome_extension_download
+
+    - name: Create install directory for workspace matrix
+      ansible.builtin.file:
+        path: "{{ userpath }}/{{ ansible_user_id }}/.local/share/gnome-shell/extensions/{{ extension_id }}"
+        state: directory
+        owner: "{{ ansible_user_uid }}"
+        group: "{{ ansible_user_gid }}"
+        mode: 0775
+
+    - name: Install Gnome Shell extension for workspace matrix
+      ansible.builtin.unarchive:
+        src: "{{ r_gnome_extension_download.dest }}"
+        dest: "{{ userpath }}/{{ ansible_user_id }}/.local/share/gnome-shell/extensions/{{ extension_id }}"
+        remote_src: yes
+
+    - name: Enable Gnome Shell extension for workspace matrix
+      command: gnome-shell-extension-tool --enable-extension {{ extension_id }}
+  always:
+    - name: Delete temporary download directory
+      ansible.builtin.file:
+        path: "{{ r_gnome_extension_download_dir.path }}"
+        state: absent
+      changed_when: no
+  when: r_gnome_extensions_check_existing.stat.exists == False

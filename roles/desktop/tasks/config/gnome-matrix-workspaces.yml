@@ -62,3 +62,11 @@
         state: absent
       changed_when: no
   when: r_gnome_extensions_check_existing.stat.exists == False
+
+- name: Enable relevant gnome extensions
+  become_user: "{{ ansible_user_id }}"
+  community.general.dconf:
+    key: "/org/gnome/shell/enabled-extensions"
+    value: "['wsmatrix@martin.zurowietz.de', 'screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com']"
+
+# Configure workspaces extension

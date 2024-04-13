@@ -2,7 +2,7 @@
 
 # Primary role: options are:
 # - base: installs bare minimum development environment
-# - desktop: installs GNOME/Ubuntu 22.04 environment
+# - desktop: installs desktop environment tools + personalisation
 role: desktop
 
 # Git configuration

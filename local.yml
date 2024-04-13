@@ -3,14 +3,18 @@
   connection: local
 
   pre_tasks:
-    - name: Update Repositories
+    - name: Update Repositories (Ubuntu)
       become: true
       ansible.builtin.apt:
         update_cache: true
       changed_when: false
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    # Update Brew Repositories (if installed)
+    - name: Update Repositories (MacOS)
+      community.general.homebrew:
+      update_homebrew: true
+      check_mode: true
+      when: ansible_distribution == 'MacOSX'
 
     - name: Fetch profile
       become: true

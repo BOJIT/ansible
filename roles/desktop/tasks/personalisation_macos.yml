@@ -30,7 +30,7 @@
 - name: Ensure iTerm Script is present
   ansible.builtin.copy:
     src: "roles/desktop/files/iterm_load.py"
-    dest: "{{ userpath }}/{{ ansible_user_id }}/Library/Application\ Support/iTerm2/DynamicProfiles/iterm_load.py"
+    dest: "{{ userpath }}/{{ ansible_user_id }}/Library/Application\ Support/iTerm2/Scripts/AutoLaunch/iterm_load.py"
     owner: "{{ ansible_user_id }}"
     group: "staff"
     mode: 0755

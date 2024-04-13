@@ -12,8 +12,8 @@
 
     - name: Update Repositories (MacOS)
       community.general.homebrew:
-      update_homebrew: true
-      check_mode: true
+        update_homebrew: true
+      ignore_errors: true
       when: ansible_distribution == 'MacOSX'
 
     - name: Fetch profile
@@ -48,14 +48,14 @@
       when: profile.role == "desktop"
 
     # end of run cleanup and reporting
-    - name: Cleanup Package Cache
+    - name: Cleanup Package Cache (Ubuntu)
       become: true
       ansible.builtin.apt:
         autoclean: true
       changed_when: false
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-    - name: Autoremove Orphan Packages
+    - name: Autoremove Orphan Packages (Ubuntu)
       become: true
       ansible.builtin.apt:
         autoremove: true

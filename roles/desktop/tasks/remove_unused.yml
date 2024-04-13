@@ -4,3 +4,4 @@
     pkg: libreoffice*
     state: absent
     purge: true
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

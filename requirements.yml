@@ -1,4 +1,9 @@
 # Ansible Galaxy Requirements
 
-- src: gantsign.oh-my-zsh
-- src: gantsign.visual-studio-code
+roles:
+  - name: elliotweiser.osx-command-line-tools
+  - name: gantsign.oh-my-zsh
+  - name: gantsign.visual-studio-code
+
+collections:
+  - name: geerlingguy.mac

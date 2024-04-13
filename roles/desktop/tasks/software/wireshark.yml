@@ -1,5 +1,6 @@
-- name: Wireshark
-  flatpak:
+- name: Wireshark (Ubuntu)
+  community.general.flatpak:
     name: org.wireshark.Wireshark
     method: user
     state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

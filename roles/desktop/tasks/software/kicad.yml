@@ -1,5 +1,6 @@
-- name: Install KiCad
-  flatpak:
+- name: Install KiCad (Ubuntu)
+  community.general.flatpak:
     name: org.kicad.KiCad
     method: user
     state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

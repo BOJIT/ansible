@@ -10,19 +10,21 @@
       changed_when: false
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
+    # Update Brew Repositories (if installed)
+
     - name: Fetch profile
       become: true
       ansible.builtin.include_vars:
         file: ~/.ansible-profile.yml
         name: profile
 
-    - name: Set Mac Variables
+    - name: Set Variables (MacOS)
       ansible.builtin.set_fact:
         userpath: /Users
         usergroup: staff
       when: ansible_distribution == 'MacOSX'
-      
-    - name: Set Linux Variables
+
+    - name: Set Variables (Ubuntu)
       ansible.builtin.set_fact:
         userpath: /home
         usergroup: "{{ ansible_user_id }}"

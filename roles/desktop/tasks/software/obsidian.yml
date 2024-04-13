@@ -1,5 +1,6 @@
-- name: Install Obsidian
-  flatpak:
+- name: Install Obsidian (Ubuntu)
+  community.general.flatpak:
     name: md.obsidian.Obsidian
     method: user
     state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

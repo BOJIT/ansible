@@ -1,5 +1,6 @@
-- name: Install Spotify
-  flatpak:
+- name: Install Spotify (Ubuntu)
+  community.general.flatpak:
     name: com.spotify.Client
     method: user
     state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

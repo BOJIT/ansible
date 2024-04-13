@@ -10,14 +10,25 @@ set -e
 cd ~
 
 # Bare minimum, need python3, pip, curl and git
-sudo apt-get install -y curl git
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3 get-pip.py --user --no-warn-script
-rm ~/get-pip.py
 
-# Install ansible and temporarily add to PATH
-python3 -m pip install --user ansible psutil --no-warn-script
-PATH=$PATH:~/.local/bin
+# If not on MacOS, assume Debian-based system
+if [ "$(uname)" == "Darwin" ]; then
+    xcode-select --install || true
+    # Temporarily add system Python Pip to our path to install Ansible into...
+    export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
+    sudo pip3 install --upgrade pip
+    # Install ansible to system Python
+    pip3 install ansible
+else
+    sudo apt-get install -y curl git
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python3 get-pip.py --user --no-warn-script
+    rm ~/get-pip.py
+    # Install ansible and temporarily add to PATH
+    python3 -m pip install --user ansible psutil --no-warn-script
+    PATH=$PATH:~/.local/bin
+fi
+
 
 # Install ansible-galaxy dependencies: handled afterwards in alias
 mkdir -p ~/.ansible/tmp

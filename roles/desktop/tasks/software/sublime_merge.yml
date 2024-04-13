@@ -1,5 +1,6 @@
-- name: Install Sublime Merge
-  flatpak:
+- name: Install Sublime Merge (Ubuntu)
+  community.general.flatpak:
     name: com.sublimemerge.App
     method: user
     state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

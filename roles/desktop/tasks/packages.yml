@@ -1,4 +1,4 @@
-- name: Install Desktop Packages
+- name: Install Desktop Packages (Ubuntu)
   become: true
   ansible.builtin.package:
     state: latest
@@ -7,15 +7,23 @@
       - gnome-shell-extension-manager
       - gnome-tweaks
 
+- name: Install Desktop Packages (MacOS)
+  community.general.homebrew_cask:
+    name: iterm2
+    state: present
+  when: ansible_distribution == 'MacOSX'
+
 - name: Setup FlatPak Support
   become: true
   ansible.builtin.package:
     name: flatpak
     state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Add FlatHub Remote
-  flatpak_remote:
+  community.general.flatpak_remote:
     name: flathub
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     method: user
     state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

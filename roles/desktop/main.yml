@@ -1,5 +1,12 @@
+# Core tasks
 - ansible.builtin.include_tasks: tasks/packages.yml
-- ansible.builtin.include_tasks: tasks/personalisation.yml
+
+- ansible.builtin.include_tasks: tasks/personalisation_ubuntu.yml
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- ansible.builtin.include_tasks: tasks/personalisation_macos.yml
+  when: ansible_distribution == 'MacOSX'
+
 - ansible.builtin.include_tasks: tasks/remove_unused.yml
 
 # Install software if in config

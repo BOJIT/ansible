@@ -40,6 +40,15 @@
     group: "{{ usergroup }}"
     mode: 0664
 
+- name: Copy .zprofile file (MacOS)
+  ansible.builtin.copy:
+    src: roles/base/files/.zprofile
+    dest: "{{ userpath }}/{{ ansible_user_id }}/.zprofile"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ usergroup }}"
+    mode: 0664
+  when: ansible_distribution == 'MacOSX'
+
 - name: Hush login
   ansible.builtin.copy:
     content: ""

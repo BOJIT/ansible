@@ -35,6 +35,7 @@
       - ranger
       - rsync
       - screen
+      - tcptraceroute
       - wget
       - python
   when: ansible_distribution == 'MacOSX'

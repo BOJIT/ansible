@@ -1,4 +1,4 @@
-- name: Install Desktop Packages (Ubuntu)
+- name: Install Core Desktop Packages (Ubuntu)
   become: true
   ansible.builtin.package:
     state: latest
@@ -6,10 +6,12 @@
       - fonts-powerline
       - gnome-shell-extension-manager
       - gnome-tweaks
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: Install Desktop Packages (MacOS)
+- name: Install Core Desktop Packages (MacOS)
   community.general.homebrew_cask:
-    name: iterm2
+    name:
+     - iterm2
     state: present
   when: ansible_distribution == 'MacOSX'
 

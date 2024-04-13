@@ -4,3 +4,6 @@
     method: user
     state: present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+# - name: Install Spotify (MacOS)
+#   TODO use App Store API

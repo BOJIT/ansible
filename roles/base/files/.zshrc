@@ -29,6 +29,8 @@ prompt_context() {
 
 # Functions
 function bojit-sync() {
+    export PY_COLORS=1
+    export ANSIBLE_FORCE_COLOR=1
     curl https://raw.githubusercontent.com/BOJIT/ansible/main/requirements.yml > ~/.ansible/tmp/requirements.yml
     ansible-galaxy install -r ~/.ansible/tmp/requirements.yml
     rm ~/.ansible/tmp/requirements.yml

@@ -4,3 +4,7 @@
     method: user
     state: present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install STM32CubeIDE (MacOS)
+    ansible.builtin.fail:
+      msg: This software is not available on the target OS!

@@ -9,6 +9,10 @@
 set -e
 cd ~
 
+# Ensure ansible runs with coloured terminal output
+export PY_COLORS=1
+export ANSIBLE_FORCE_COLOR=1
+
 # Bare minimum, need python3, pip, curl and git
 
 # If not on MacOS, assume Debian-based system

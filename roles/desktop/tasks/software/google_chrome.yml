@@ -1,26 +1,34 @@
-- name: software | google-chrome | add repository key
+- name: Google Chrome - Add Repository Key (Ubuntu)
   become: true
-  apt_key:
+  ansible.builtin.apt_key:
     url: https://dl-ssl.google.com/linux/linux_signing_key.pub
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: software | google-chrome | add repository
+- name: Google Chrome - Add Repository (Ubuntu)
   become: true
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
     filename: google-chrome
   register: chrome_repo
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: software | google-chrome | update sources (repo added or changed)
+- name: Google Chrome - Update Repository Indexes (Ubuntu)
   become: true
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
-  changed_when: False
-  when: chrome_repo.changed
+  changed_when: false
+  when:
+    - chrome_repo.changed
+    - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: software | google-chrome | install package
+- name: Google Chrome - Install Browser (Ubuntu)
   become: true
-  apt:
+  ansible.builtin.apt:
     name: google-chrome-stable
-  when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install Google Chrome (MacOS)
+  community.general.homebrew_cask:
+    name: google-chrome
+    state: present
+  when: ansible_distribution == 'MacOSX'

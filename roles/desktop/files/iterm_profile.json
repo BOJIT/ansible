@@ -1,8 +1,8 @@
 {
     "Profiles": [
         {
-            "Name": "Default",
-            "Guid": "38FE0ED2-BCD2-472D-85A6-7FF307AF8C1D",
+            "Name": "BOJIT",
+            "Guid": "38FE0ED2-BCD2-472D-85A6-7FF307AF8C11",
             "Ansi 3 Color": {
                 "Red Component": 0.70980392156862748,
                 "Color Space": "sRGB",

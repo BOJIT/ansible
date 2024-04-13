@@ -24,6 +24,7 @@ wget -O - https://raw.githubusercontent.com/BOJIT/ansible/main/init.sh | bash
 (if your system doesn't have `wget`, try `curl`):
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/BOJIT/ansible/main/templates/.ansible-profile.yml)"
+```
 
 4. For future synchronisations, simply type:
 

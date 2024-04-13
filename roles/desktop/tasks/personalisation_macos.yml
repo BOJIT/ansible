@@ -4,7 +4,7 @@
     dest: "{{ userpath }}/{{ ansible_user_id }}/Library/Fonts/"
     directory_mode:
     owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    group: "staff"
     mode: 0644
 
 # ~/Library/Application\ Support/iTerm2/DynamicProfiles

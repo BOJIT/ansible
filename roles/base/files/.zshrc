@@ -32,7 +32,7 @@ function bojit-sync() {
     export PY_COLORS=1
     export ANSIBLE_FORCE_COLOR=1
 
-    if [ "$(uname)" == "Darwin" ]; then
+    if [[ "$(uname)" == "Darwin" ]]; then
         export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
     fi
 

@@ -16,7 +16,7 @@ export ANSIBLE_FORCE_COLOR=1
 # Bare minimum, need python3, pip, curl and git
 
 # If not on MacOS, assume Debian-based system
-if [ "$(uname)" == "Darwin" ]; then
+if [[ "$(uname)" == "Darwin" ]]; then
     # Temporarily add system Python Pip to our path to install Ansible into...
     export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
     sudo pip3 install --upgrade pip

@@ -1,7 +1,16 @@
 # ansible
+
 Personal ansible configurations
 
-# Quickstart
+## Prerequisites
+
+- On Linux-Based systems, your only requirement is some form of `python3` on your system path. Only ansible itself will be installed into your system python environment.
+
+- It is recommended to do run an `apt/brew upgrade` if running on a fresh install.
+
+- On MacOS you'll need XCode command-line tools. Install with `xcode-select --install`.
+
+## Quickstart
 
 1. Create `ansible-profile.yml` file from template and place in home directory:
 
@@ -40,4 +49,4 @@ bojit-sync
 
 - `Raspberry Pi OS: Debian distribution, Headless only (Base Profile)
 
-- `MacOS`: Need to sort out my Mac dev machine.
+- `MacOS`: Tested on Ventura / Later

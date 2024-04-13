@@ -13,7 +13,6 @@ cd ~
 
 # If not on MacOS, assume Debian-based system
 if [ "$(uname)" == "Darwin" ]; then
-    xcode-select --install || true
     # Temporarily add system Python Pip to our path to install Ansible into...
     export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
     sudo pip3 install --upgrade pip

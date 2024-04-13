@@ -34,24 +34,27 @@
 - name: Fetch latest package (Ubuntu)
   ansible.builtin.get_url:
     url: https://desktop.docker.com/linux/main/amd64/docker-desktop-4.15.0-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64
-    dest: "{{ userpath }}/{{ ansible_user_id }}/dockerDesktop.deb
-  when: '"docker-desktop" not in ansible_facts.packages'
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    dest: "{{ userpath }}/{{ ansible_user_id }}/dockerDesktop.deb"
+  when:
+    - '"docker-desktop" not in ansible_facts.packages'
+    - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install Docker Desktop (Ubuntu)
   become: true
   ansible.builtin.apt:
     deb: "{{ userpath }}/{{ username }}/dockerDesktop.deb"
     update_cache: yes
-  when: '"docker-desktop" not in ansible_facts.packages'
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  when:
+    - '"docker-desktop" not in ansible_facts.packages'
+    - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Remove installer file (Ubuntu)
   ansible.builtin.file:
-    path: "{{ userpath }}/{{ username }}/dockerDesktop.deb
+    path: "{{ userpath }}/{{ username }}/dockerDesktop.deb"
     state: absent
-  when: '"docker-desktop" not in ansible_facts.packages'
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  when:
+    - '"docker-desktop" not in ansible_facts.packages'
+    - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install docker-compose for user (Ubuntu)
   ansible.builtin.pip:

@@ -1,3 +1,8 @@
+- name: Ensure that Homebrew is installed (MacOS)
+  ansible.builtin.include_role:
+    name: geerlingguy.mac.homebrew
+  when: ansible_distribution == 'MacOSX'
+
 - name: Install Base Packages (Ubuntu)
   become: yes
   ansible.builtin.package:

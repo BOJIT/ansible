@@ -31,6 +31,11 @@ prompt_context() {
 function bojit-sync() {
     export PY_COLORS=1
     export ANSIBLE_FORCE_COLOR=1
+
+    if [ "$(uname)" == "Darwin" ]; then
+        export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
+    else
+
     curl https://raw.githubusercontent.com/BOJIT/ansible/main/requirements.yml > ~/.ansible/tmp/requirements.yml
     ansible-galaxy install -r ~/.ansible/tmp/requirements.yml
     rm ~/.ansible/tmp/requirements.yml

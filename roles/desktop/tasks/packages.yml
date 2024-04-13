@@ -12,6 +12,8 @@
   community.general.homebrew_cask:
     name:
      - iterm2
+     - rectangle
+     - stats
     state: present
   when: ansible_distribution == 'MacOSX'
 

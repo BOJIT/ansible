@@ -5,5 +5,8 @@
     state: present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-# - name: Install Spotify (MacOS)
-#   TODO use App Store API
+- name: Install Spotify (MacOS)
+  community.general.homebrew_cask:
+    name: spotify
+    state: present
+  when: ansible_distribution == 'MacOSX'

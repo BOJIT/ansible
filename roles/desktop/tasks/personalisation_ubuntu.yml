@@ -52,7 +52,7 @@
 - name: Install fonts to local
   ansible.builtin.copy:
     src: "roles/desktop/files/fonts/"
-    dest: "/home/{{ ansible_user_id }}/.local/share/fonts/"
+    dest: "{{ userpath }}/{{ ansible_user_id }}/.local/share/fonts/"
     directory_mode:
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"

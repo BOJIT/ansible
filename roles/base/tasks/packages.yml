@@ -28,7 +28,6 @@
   ansible.builtin.package:
     state: latest
     name:
-      - cmake
       - curl
       - git
       - htop

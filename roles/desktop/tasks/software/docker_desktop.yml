@@ -29,19 +29,19 @@
 - name: Fetch latest package
   ansible.builtin.get_url:
     url: https://desktop.docker.com/linux/main/amd64/docker-desktop-4.15.0-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64
-    dest: /home/{{ ansible_user_id }}/dockerDesktop.deb
+    dest: "{{ userpath }}/{{ ansible_user_id }}/dockerDesktop.deb
   when: '"docker-desktop" not in ansible_facts.packages'
 
 - name: Install Docker Desktop
   become: true
   ansible.builtin.apt:
-    deb: /home/{{ username }}/dockerDesktop.deb
+    deb: "{{ userpath }}/{{ username }}/dockerDesktop.deb
     update_cache: yes
   when: '"docker-desktop" not in ansible_facts.packages'
 
 - name: Remove installer file
   ansible.builtin.file:
-    path: /home/{{ username }}/dockerDesktop.deb
+    path: "{{ userpath }}/{{ username }}/dockerDesktop.deb
     state: absent
   when: '"docker-desktop" not in ansible_facts.packages'
 

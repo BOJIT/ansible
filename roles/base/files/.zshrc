@@ -34,7 +34,7 @@ function bojit-sync() {
 
     if [ "$(uname)" == "Darwin" ]; then
         export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
-    else
+    fi
 
     curl https://raw.githubusercontent.com/BOJIT/ansible/main/requirements.yml > ~/.ansible/tmp/requirements.yml
     ansible-galaxy install -r ~/.ansible/tmp/requirements.yml

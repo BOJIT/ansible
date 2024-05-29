@@ -18,7 +18,8 @@
   ansible.builtin.user:
     name: "{{ ansible_user_id }}"
     groups: wireshark
-    append: true
+    append: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install Wireshark (MacOS)
   community.general.homebrew_cask:

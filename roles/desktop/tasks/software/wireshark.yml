@@ -5,6 +5,21 @@
     name: wireshark
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
+- name: Ensure members of the Wireshark group can capture packets (Ubuntu)
+  become: true
+  ansible.builtin.debconf:
+    name: wireshark-common
+    question: wireshark-common/install-setuid
+    value: true
+    vtype: boolean
+
+- name: Add user to Wireshark Group (Ubuntu)
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: wireshark
+    append: true
+
 - name: Install Wireshark (MacOS)
   community.general.homebrew_cask:
     name: wireshark

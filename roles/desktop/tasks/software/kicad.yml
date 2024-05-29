@@ -2,7 +2,7 @@
   community.general.flatpak:
     name: org.kicad.KiCad
     method: user
-    state: present
+    state: latest
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install KiCad (MacOS)

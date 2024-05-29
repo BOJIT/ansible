@@ -1,8 +1,8 @@
 - name: Wireshark (Ubuntu)
-  community.general.flatpak:
-    name: org.wireshark.Wireshark
-    method: user
-    state: present
+  become: true
+  ansible.builtin.package:
+    state: latest
+    name: wireshark
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
 - name: Install Wireshark (MacOS)

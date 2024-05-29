@@ -24,7 +24,7 @@
     state: present
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: Add FlatHub Remote
+- name: Add FlatHub Remote (Ubuntu)
   community.general.flatpak_remote:
     name: flathub
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo

@@ -3,6 +3,18 @@
     name: geerlingguy.mac.homebrew
   when: ansible_distribution == 'MacOSX'
 
+- name: Upgrade Existing Packages (Ubuntu)
+  become: yes
+  ansible.builtin.apt:
+    upgrade: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Upgrade Existing Packages (MacOS)
+  ansible.builtin.homebrew:
+    update_homebrew: true
+    upgrade_all: true
+  when: ansible_distribution == 'MacOSX'
+
 - name: Install Base Packages (Ubuntu)
   become: yes
   ansible.builtin.package:

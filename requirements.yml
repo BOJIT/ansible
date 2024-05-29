@@ -7,3 +7,5 @@ roles:
 
 collections:
   - name: geerlingguy.mac
+  - name: community.general
+    version: ">=8.6.0"

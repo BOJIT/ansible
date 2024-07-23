@@ -11,11 +11,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # Pyenv (Python)
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PATH:/$HOME/.pyenv/bin:/$HOME/.local/bin"
+export PATH="/$HOME/.pyenv/bin:/$HOME/.local/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Poetry (Python)
-export PATH="$PATH:/$HOME/.poetry/bin"
+export PATH="/$HOME/.poetry/bin:$PATH"
 
 # Rustup (Rust)
 [ -f ~/.cargo/env ] && source $HOME/.cargo/env

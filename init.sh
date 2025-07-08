@@ -25,10 +25,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
 else
     sudo apt-get install -y curl git
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    python3 get-pip.py --user --no-warn-script
+    python3 get-pip.py --user --no-warn-script --break-system-packages
     rm ~/get-pip.py
     # Install ansible and temporarily add to PATH
-    python3 -m pip install --user ansible psutil --no-warn-script
+    python3 -m pip install --user ansible psutil --no-warn-script --break-system-packages
     PATH=$PATH:~/.local/bin
 fi
 
